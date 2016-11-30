@@ -1,0 +1,16 @@
+{
+  "css": [
+  	"/bower_components/video.js/dist/video-js/video-js.min.css",
+  	"/experiences/players/videojs/css/fuiszvideo.css",
+    "/experiences/blocks/common/vertical_base.css",
+    "/bower_components/slick.js/slick/slick.css",
+    "/bower_components/slick.js/slick/slick-theme.css"
+  ],
+  "js": [
+    "/bower_components/slick.js/slick/slick.js",
+    "/bower_components/jquery-watch-dom/jquery-watch.min.js",
+    "/experiences/blocks/common/content_block_base/index.js",
+    "/bower_components/video.js/dist/video-js/video.js",
+    "/bower_components/videojs-youtube/dist/vjs.youtube.js"
+  ]
+}

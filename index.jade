@@ -1,0 +1,84 @@
+extends ../block
+include ../../ui/components/block_social/index
+
+block styles
+  //- for clarity, convenience
+  - var data = block;
+  - var bs = block.style;
+  - var bc = block.content;
+  - var id = block._id;
+  - var bid = '.block-'+id;
+  - var fv = block.content.videos[0];  // first video
+
+  //- user styles go here
+  +fontStyle(bid, '.toggle', bs.toggle.font, true)
+  +svgFillStyles('.toggle-icon', bs.toggle.font.color)
+
+  +fontStyle(bid, '.title', bs.title.font, true)
+  +fontStyle(bid, '.content-headline', bs.content_headline.font, true)
+  +fontStyle(bid, '.content-text', bs.content_description.font, true)
+
+  style.
+    #{bid} .toggle-icon, #{bid} .toggle-text {
+      color: #{bs.toggle.color};
+    }
+
+block markup
+  +contentBlock(data, type)
+    .cb-outer
+      .cb-inner
+        .hero
+          .inner
+            .vid-carousel
+              each video, index in block.content.videos
+                if video.mp4_url
+                .vid-tile
+                  video.cb-video-player.video-js.vjs-default-skin.vjs-fuisz-skin(
+                        data-mp4-url=video.mp4_url,
+                        data-webm-url=video.webm_url,
+                        data-content-headline=video.content_headline,
+                        data-content-text=video.content_description,
+                        title=video.title ? video.title : '',
+                        poster=video.poster_image_url ? video.poster_image_url : "/experiences/blocks/video/poster.svg",
+                        width="auto",
+                        height="auto",
+                        preload="auto",
+                        webkit-playsinline="",
+                        playsinline="",
+                        autoplay="autoplay",
+                        controls="",
+                        loop="")
+
+
+            // this preview vid will only play if autoplay is on so will always be muted
+            .preview-vid-holder
+              video.cb-video-player.video-js.vjs-default-skin.vjs-fuisz-skin.preview-vid(
+                data-mp4-url=fv.mp4_url,
+                data-autoplay=bc.video_autoplay ? 1 : 0,
+                data-webm-url=fv.webm_url,
+                data-content-headline=fv.content_headline,
+                data-content-text=fv.content_description,
+                title=fv.title ? fv.title : '',
+                poster=fv.poster_image_url ? fv.poster_image_url : "/experiences/blocks/video/poster.svg",
+                width="100%",
+                height="100%",
+                preload="auto",
+                webkit-playsinline="",
+                playsinline="",
+                muted=true,
+                controls="",
+                loop="")
+            .close-btn
+              .label close
+
+        .title-bar
+          .inner
+            .title!= bc.title
+            .toggle
+              +icon('cb_open','toggle-icon', true)
+              .toggle-open Open
+              .toggle-close Close
+        .content
+          .content-scroll
+            .content-headline!= fv.content_headline
+            .content-text!= fv.content_description

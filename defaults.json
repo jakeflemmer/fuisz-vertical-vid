@@ -1,0 +1,47 @@
+{
+  "name": "vertical_viv",
+  "content": {
+    "title": "Content Block Title",
+    "content_headline": "Content Block Headline",
+    "content_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.",
+    "tooltip": {
+      "label": "",
+      "thumb": ""
+    },
+    "slides": [
+      {
+        "url":"https://placehold.it/200x114/cccccc/ff0000"
+      },
+      {
+        "url":"https://placehold.it/200x114/cccccc/00ff00"
+      }
+    ]
+  },
+  "style": {
+    "hero_colorscheme": "dark",
+    "toggle": {
+      "font": {
+        "color": "#fa5400",
+        "family": "Arial, Helvetica, sans-serif"
+      }
+    },
+    "title": {
+      "font": {
+        "color": "rgba(0,0,0,1)",
+        "family": "Arial, Helvetica, sans-serif"
+      }
+    },
+    "content_headline": {
+      "font": {
+        "color": "rgba(0,0,0,1)",
+        "family": "Arial, Helvetica, sans-serif"
+      }
+    },
+    "content_description": {
+      "font": {
+        "color": "rgba(0,0,0,1)",
+        "family": "Arial, Helvetica, sans-serif"
+      }
+    }
+  }
+}
